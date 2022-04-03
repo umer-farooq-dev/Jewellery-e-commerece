@@ -22,7 +22,7 @@
     <title>Traditional Jewellery | {% block title %} {% endblock title %} </title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
      <div class="container">
        <a class="navbar-brand" href="/">Traditional Jewellery</a>
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,6 +49,7 @@
          </form>
          <div>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              {% if request.user.is_authenticated %}
            <li class="nav-item dropdown mx-2">
               <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Neha
@@ -56,19 +57,21 @@
               <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                 <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
                 <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
-                <li><a class="dropdown-item" href="{% url 'changepassword' %}">Change Password</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
               </ul>
             </li>
             <li class="nav-item mx-2">
              <a href="{% url 'add-to-cart' %}" class="nav-link text-white"><span class="badge bg-danger">4</span> Cart </a>
             </li>
+              {% else %}
             <li class="nav-item mx-2">
              <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
             </li>
             <li class="nav-item mx-2">
              <a href="{% url 'customerregistration' %}" class="nav-link text-white">Registration</a>
             </li>
+              {% endif %}
           </ul>
          </div>
        </div>
