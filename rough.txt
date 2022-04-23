@@ -1,0 +1,5 @@
+<button id="pr{{item.id}}" class="btn btn-primary bag">Add To Bag</button></span>
+                <a href="/online/items/{{item.id}}"> <button id="quv{{item.id}}" class="btn btn-primary cart">Quick
+                    View</button></a>
+
+<span id="divpr{{item.id}}" class="divpr">
